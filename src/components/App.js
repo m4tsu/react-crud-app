@@ -16,16 +16,13 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { value: state.count.value}
-}
-
+const mapStateToProps = state => ({ value: state.count.value})
+const mapDispatchToProps = ({ increment, decrement })
 // const mapDispatchToProps = dispatch => {
 //   return {
 //     increment: () => dispatch(increment()),
 //     decrement: () => dispatch(decrement())
 //     }
 // }
-const mapDispatchToProps = ({ increment, decrement })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

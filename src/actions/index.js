@@ -2,8 +2,14 @@ import axios from 'axios'
 import { ROOT_URL, QUERYSTRING } from '../environment'
 
 export const READ_EVENTS = 'READ_EVENTS'
+export const CREATE_EVENT = 'CREATE_EVENT'
 
 export const readEvents = () => async dispatch => {
   const response = await axios.get(`${ROOT_URL}/events${QUERYSTRING}`)
   dispatch({type: READ_EVENTS, response})
+}
+
+export const postEvent = (values) => async dispatch => {
+  const response = await axios.post(`${ROOT_URL}/events${QUERYSTRING}`, values)
+  dispatch({type: CREATE_EVENT, response})
 }
